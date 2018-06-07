@@ -1,19 +1,515 @@
-<DOCTYPE html>
-<!DOCTYPE html>
 <html>
+
 <head>
-	<title>hackathon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/muzima.js"></script>
+
+    <title>CDM CHW Form v 0.01</title>
 </head>
-<body>
-	NECESSARY  VACCINATION GIVEN:   no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/>
-	BREAST FEEDING EDUCATION GIVEN :   no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/> 
-	POSITIONING OF BABY IN WOMB DISCUSSED  no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/>
-	CANCELLING DONE    no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/>
-	BABY MOVEMENT AND MONITORING DONE    no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/>
-	NEXT VISIT DATE GIVEN  no:<input type="checkbox" />   yes<input type="checkbox" /><br/><br/>
-	NEXT VISIT    <input type="date" />
+
+<body class="col-md-10 col-md-offset-1">
+<div id="pre_populate_data"></div>
+<h2 class="text-center">HACKATHON GROUP 2</h2>
+
+<form id="chw_form" name="chw_form">
+
+
+	<div class="section">
+    <h3>Demographics</h3>
+
+    <div class="form-group">
+        <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly">
+    </div>
+    <div class="form-group">
+        <label for="patient.medical_record_number">AMRS ID Number:</label>
+        <input class="form-control" id="patient.medical_record_number" name="patient.medical_record_number" type="text"
+               readonly="readonly" disabled="disabled">
+    </div>
+    <div class="form-group">
+    <label for="patient.family_name">Family Name:</label>
+        <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" readonly="readonly"
+               disabled="disabled">
+    </div>
+    <div class="form-group">
+        <label for="patient.given_name">Given Name:</label>
+        <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" readonly="readonly"
+               disabled="disabled">
+    </div>
+    <div class="form-group">
+        <label for="patient.middle_name">Middle Name:</label>
+        <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" readonly="readonly"
+               disabled="disabled">
+    </div>
+    <div class="form-group">
+        <label for="patient.sex">Gender:</label>
+        <select class="form-control" id="patient.sex" name="patient.sex" disabled="disabled">
+            <option value="">...</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="patient.birth_date">Date Of Birth:</label>
+        <input class="form-control" id="patient.birth_date" name="patient.birth_date" type="text"
+               readonly="readonly" disabled="disabled">
+    </div>
+</div>
 
 
 
+	<div class="section" data-concept="6135^VACCINATION GIVEN, DETAILED^99DCT">
+    <h4>NECESSARY  VACCINATION GIVEN:<span class="required">*</span></h4>
+
+    <fieldset name="6749^VACCINATION GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="vaccination">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="vaccination">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+    <div class="section" data-concept="6134^BREAST FEEDING EDUCATION, DETAILED^99DCT">
+    <h4>Breast feeding Education given :<span class="required">*</span></h4>
+     <fieldset name="6134^BREAST FEEDING EDUCATION GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="1065^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="vaccination">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="vaccination">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+ <div class="section" data-concept="6134^BREAST FEEDING EDUCATION, DETAILED^99DCT">
+    <h4>positioning of baby in womb discussed  :<span class="required">*</span></h4>
+     <fieldset name="6133^BREAST FEEDING EDUCATION GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="1065^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="womb">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="womb">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+<div class="section" data-concept="6134^COUNSELLING DONE ^99DCT">
+    <h4>counselling done   :<span class="required">*</span></h4>
+     <fieldset name="6117^COUNSELLING DONE^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="1065^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="womb">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="womb">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+<div class="section" data-concept="6132^Baby movement monitoring done , DETAILED^99DCT">
+    <h4>BABY MOVEMENT MONITORING DONE   :<span class="required">*</span></h4>
+     <fieldset name="6133^BREAST FEEDING EDUCATION GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="1065^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="womb">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="womb">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+<div class="section" data-concept="6121^NEXT VISIT DATE GIVEN , DETAILED^99DCT">
+    <h4>NEXT VISIT DATE GIVEN  :<span class="required">*</span></h4>
+     <fieldset name="6133^NEXT VISIT DATE GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="radio"
+                       data-concept="1065^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="womb">
+                yes
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.mch" type="radio"
+                       data-concept="6749^REFERRED BY^99DCT"
+                       value="1066^MATERNAL CHILD HEALTH PROGRAM^99DCT" name="womb">
+                no
+            </label>
+        </div>
+        
+        
+        
+    </fieldset>
+</div>
+
+<div class="section" data-concept="5096^NEXT VISIT DATE, DETAILED^99DCT">
+    <h4>NEXT VISIT DATE :<span class="required">*</span></h4>
+     <fieldset name="6133^NEXT VISIT DATE GIVEN^99DCT">
+        <div class="form-group">
+            <label class="font-normal">
+                <input id="referred_by.phct" type="date"
+                       data-concept="5096^REFERRED BY^99DCT"
+                       value="1065^PHCT^99DCT" name="womb">
+               
+            </label>
+        </div>
+        
+        
+        
+        
+    </fieldset>
+</div>
+
+
+
+
+
+
+
+</form>
 </body>
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+    var dateFormat = "dd-mm-yy";
+    var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+    var encounterDatetime = $('#encounter\\.encounter_datetime');
+    if ($(encounterDatetime).val() == "") {
+        $(encounterDatetime).val(currentDate);
+    }
+
+    $('#save_draft').click(function () {
+        // pre process the medications
+        $(this).prop('disabled', true);
+        document.saveDraft(this);
+        $(this).prop('disabled', false);
+    });
+
+    $('#submit_form').click(function () {
+        // pre process the medications
+        $(this).prop('disabled', true);
+        document.submit();
+        $(this).prop('disabled', false);
+    });
+
+    var locationName = [
+        {"val": "7", "label": "Chulaimbo"},
+        {"val": "3", "label": "Turbo"},
+        {"val": "17", "label": "Iten"},
+        {"val": "2", "label": "Mosoriot"},
+        {"val": "8", "label": "Webuye"},
+        {"val": "9", "label": "Ampath MTRH"}
+    ];
+
+    document.setupAutoCompleteData('encounter\\.location_id');
+
+    document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+
+
+    $('#encounter\\.provider_id_select').change(function () {
+        if ($('#encounter\\.provider_id_select').val() === '') {
+            $('#encounter\\.provider_id').val('');
+            $('.show_provider_id_text').show();
+        }
+    });
+
+    $('#chw_form').validate({});
+
+    /* Start - Toggle free text element */
+    var $hasOther = $('.has-freetext');
+    $hasOther.change(function () {
+        var $freetext = $(this).closest('.section').find('.freetext');
+        if ($(this).is(':checkbox')) {
+            if ($(this).is(':checked')) {
+                $freetext.show();
+            } else {
+                $freetext.hide();
+            }
+        }
+    });
+    $hasOther.trigger('change');
+    /* End - Toggle free text element */
+
+    /* Start - Toggle medications */
+    var $onMedication = $(':radio[data-concept="1193^CURRENT MEDICATIONS^99DCT"]');
+    $onMedication.change(function () {
+        var onMedicationValue = $(this).val();
+        var $currentMedication = $('input[data-concept="1193^CURRENT MEDICATIONS^99DCT^1"]').closest(".custom-repeat");
+        if ($(this).is(':checked')) {
+            if (onMedicationValue == '1065^YES^99DCT') {
+                $currentMedication.removeClass('hidden');
+            } else if (onMedicationValue == '1066^NO^99DCT') {
+                $currentMedication.addClass('hidden');
+            }
+        }
+    });
+    $onMedication.trigger('change');
+    /* End - Toggle medications */
+
+    /* Start - Toggle resume date and facility */
+    var RETURN_PLAN_CONCEPT = "6140^PLAN TO RETURN TO CLINIC^99DCT";
+    var $resumeCare = $(':radio[data-concept="' + RETURN_PLAN_CONCEPT + '"]');
+    $resumeCare.change(function () {
+        var resumeCareValue = $(this).val();
+        var FACILITY_TYPE_CONCEPT = "9086^FACILITY TYPE^99DCT";
+        var RETURN_DISPENSARY_CONCEPT = "7348^RETURN VISIT DATE, DISPENSARY^99DCT";
+        var $resumeCareDate = $('input[data-concept="' + RETURN_DISPENSARY_CONCEPT + '"]').closest('.form-group');
+        var $resumeCareFacility = $('input[data-concept="' + FACILITY_TYPE_CONCEPT + '"]').closest('.form-group');
+        if ($(this).is(':checked')) {
+            if (resumeCareValue == '1065^YES^99DCT') {
+                $resumeCareDate.removeClass('hidden');
+                $resumeCareFacility.removeClass('hidden')
+            } else if (resumeCareValue == '1066^NO^99DCT') {
+                $resumeCareDate.addClass('hidden');
+                $resumeCareFacility.addClass('hidden');
+            }
+        }
+    });
+    $resumeCare.trigger('change');
+    /* End - Toggle resume date and facility */
+
+    /* Start - Toggle facility */
+    var OTHER_FACILITY_CONCEPT = "9164^ENROLL CARE IN ANOTHER HEALTH FACILITY^99DCT";
+    var $enrolled = $(':radio[data-concept="' + OTHER_FACILITY_CONCEPT + '"]');
+    $enrolled.change(function () {
+        var enrolledValue = $(this).val();
+        var RETURN_PLAN_CONCEPT = "6140^PLAN TO RETURN TO CLINIC^99DCT";
+        var FACILITY_ENROLLED_CONCEPT = "9165^NAME OF FACILITY TO WHICH PATIENT IS ENROLLED^99DCT";
+        var $resumeCare = $(':radio[data-concept="' + RETURN_PLAN_CONCEPT + '"]').closest('.form-group');
+        var $enrolledFacility = $('input[data-concept="' + FACILITY_ENROLLED_CONCEPT + '"]').closest('.form-group');
+        if ($(this).is(':checked')) {
+            if (enrolledValue == '1065^YES^99DCT') {
+                $resumeCare.find(":radio").prop("checked", false).trigger('change');
+                $resumeCare.addClass('hidden');
+                $enrolledFacility.removeClass('hidden');
+            } else if (enrolledValue == '1066^NO^99DCT') {
+                $resumeCare.find(":radio").prop("checked", false).trigger('change');
+                $resumeCare.removeClass('hidden');
+                $enrolledFacility.addClass('hidden');
+            }
+        }
+    });
+    $enrolled.trigger('change');
+    /* End - Toggle facility */
+
+    var medications = [
+        {"label": "DAPSONE", "value": 92},
+        {"label": "STREPTOMYCIN", "value": 438},
+        {"label": "MULTIVITAMIN", "value": 461},
+        {"label": "ISONIAZID", "value": 656},
+        {"label": "ETHAMBUTOL", "value": 745},
+        {"label": "FLUCONAZOLE", "value": 747},
+        {"label": "RIFAMPICIN ISONIAZID AND PYRAZINAMIDE", "value": 768},
+        {"label": "TRIMETHOPRIM AND SULFAMETHOXAZOLE", "value": 916},
+        {"label": "NYSTATIN", "value": 919},
+        {"label": "UNKNOWN", "value": 1067},
+        {"label": "RIFAMPICIN ISONIAZID PYRAZINAMIDE AND ETHAMBUTOL", "value": 1131},
+        {"label": "RIFAMPICIN AND ISONIAZID", "value": 1194},
+        {"label": "ANTIBIOTICS", "value": 1195},
+        {"label": "OTHER NON-CODED", "value": 5622},
+        {"label": "ANTIMALARIAL MEDICATIONS", "value": 5839},
+        {"label": "HERBAL TRADITIONAL MEDICATIONS", "value": 5841},
+        {"label": "MINERALS IRON SUPPLEMENTS", "value": 5843},
+        {"label": "NONE", "value": 1107},
+        {"label": "RIFAMPICIN ISONIAZID AND ETHAMBUTOL", "value": 2231},
+        {"label": "ETHAMBUTOL AND ISONIZAID", "value": 1108},
+        {"label": "RIFAMPICIN", "value": 767},
+        {"label": "PYRAZINAMIDE", "value": 5829},
+        {"label": "NSAIDS", "value": 6476},
+        {"label": "DIHYDROCODEINE", "value": 743},
+        {"label": "MORPHINE", "value": 6477},
+        {"label": "ZIDOVUDINE AND LAMIVUDINE", "value": 630},
+        {"label": "STAVUDINE LAMIVUDINE AND NEVIRAPINE", "value": 792},
+        {"label": "EMTRICITABINE AND TENOFOVIR", "value": 6180},
+        {"label": "NEVIRAPINE", "value": 631},
+        {"label": "LAMIVUDINE", "value": 628},
+        {"label": "ZIDOVUDINE", "value": 797},
+        {"label": "STAVUDINE", "value": 625},
+        {"label": "EFAVIRENZ", "value": 633},
+        {"label": "ABACAVIR", "value": 814},
+        {"label": "LOPINAVIR AND RITONAVIR", "value": 794},
+        {"label": "DIDANOSINE", "value": 796},
+        {"label": "TENOFOVIR", "value": 802},
+        {"label": "INDINAVIR", "value": 749},
+        {"label": "RALTEGRAVIR", "value": 6156},
+        {"label": "PEDIATRIC RIFAMPICIN ISONIAZID AND PYRAZINAMIDE", "value": 6602},
+        {"label": "PEDIATRIC RIFAMPICIN AND ISONIAZID", "value": 6603},
+        {"label": "METFORMIN", "value": 2261},
+        {"label": "GLIBENCLAMIDE", "value": 2257},
+        {"label": "ENALAPRIL", "value": 1242},
+        {"label": "HYDROCHLOROTHIAZIDE", "value": 1243},
+        {"label": "LOSARTAN", "value": 2265},
+        {"label": "NIFEDIPINE", "value": 250},
+        {"label": "FLUOXETINE", "value": 2281},
+        {"label": "OLANZAPINE", "value": 2282},
+        {"label": "ALPRAZOLAM", "value": 733},
+        {"label": "AMITRIPTYLINE", "value": 2273},
+        {"label": "BENZHEXOL", "value": 7578},
+        {"label": "CARBAMAZEPINE", "value": 920},
+        {"label": "CHLORPROMAZINE", "value": 914},
+        {"label": "FLUPHENAZINE", "value": 927},
+        {"label": "HALOPERIDOL", "value": 2283},
+        {"label": "IMIPRAMINE", "value": 748},
+        {"label": "VALPROATE SODIUM", "value": 2284},
+        {"label": "ANTIRETROVIRAL DRUGS", "value": 1085},
+        {"label": "VITAMINS", "value": 6339},
+        {"label": "MALARIA PROPHYLAXIS", "value": 6338},
+        {"label": "IRON SUPPLEMENT", "value": 2363},
+        {"label": "FOLIC ACID", "value": 257}
+    ];
+
+    /* Start - Custom repeating element */
+    $('.custom-repeat')
+            .append("<input class='btn btn-primary add-section pull-left' type='button' value='+'/>")
+            .append("<input class='btn btn-primary remove-section pull-right' type='button' value='-'/><span class='clear'></span>");
+
+    var enableAutoComplete = function(input) {
+        $(input).autocomplete({
+            source: medications,
+            create: function (event, ui) {
+                var value = $(this).val();
+                $.each(locationName, function (i, element) {
+                    if (element.val == value) {
+                        $(this).val(element.label);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                var selectedValue = ui.item.value + "^" + ui.item.label + "^99DCT";
+                $(this).val(selectedValue);
+                return false;
+            }
+        }).focus(function () {
+            $(this).find('input').select();
+            $(this).select();
+        });
+    };
+
+    var enableAddSection = function(input) {
+        $(input).click(function () {
+            var $clonedSection = $(this).parent().clone().insertAfter($(this).parent());
+            $clonedSection.find(':input:not(:button)').val('');
+            $clonedSection.find(':input:not(:button)').trigger('change');
+            enableAddSection($clonedSection.find('.add-section'));
+            enableRemoveSection($clonedSection.find('.remove-section'));
+            enableAutoComplete($clonedSection.find('.current_medication'));
+        });
+    };
+
+    var enableRemoveSection = function(input) {
+        $(input).click(function () {
+            var $parent = $(this).parent();
+            var _id = $parent.attr('id');
+            if ($("." + _id).length > 1) {
+                $parent.remove();
+            }
+        });
+    };
+
+    enableAddSection($('.add-section'));
+    enableRemoveSection('.remove-section');
+    enableAutoComplete($('.current_medication'));
+    /* End - Custom repeating element */
+
+    $.fn.customValidationCheck = function () {
+        var referredBy = $('fieldset[name="6749^REFERRED BY^99DCT"]');
+        var followUpType = $('fieldset[name="2332^TYPE OF FOLLOW-UP^99DCT"]');
+        var clinicVisitPlan = $('fieldset[name="6140^PLAN TO RETURN TO CLINIC^99DCT"]');
+        var followUpCategory = $('fieldset[name="9081^PATIENT ON OUTREACH FOLLOW-UP CATEGORY^99DCT"]');
+        var missedVisitReason = $('fieldset[name="1733^REASON FOR MISSED VISIT^99DCT"]');
+        var currentMedication = $('fieldset[name="1193^CURRENT MEDICATIONS^99DCT"]');
+        var enrolled = $('fieldset[name="9164^ENROLL CARE IN ANOTHER HEALTH FACILITY^99DCT"]');
+        var errors = $.extend({},
+                validateSelected(referredBy),
+                validateSelected(followUpType),
+                validateSelected(clinicVisitPlan),
+                validateSelected(followUpCategory),
+                validateSelected(missedVisitReason),
+                validateSelected(currentMedication),
+                validateSelected(enrolled));
+        showValidationMessages(errors);
+        return $.isEmptyObject(errors);
+    }
+
+    document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()","encounter\\.provider_id");
+    document.setupValidationForLocation("$('#encounter\\.location_id').val()","encounter\\.location_id");
+
+
+});
+</script>
+
 </html>
